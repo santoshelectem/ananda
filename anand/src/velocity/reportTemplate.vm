@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtm
+<head>
+	<style>
+		table{
+			border-collapse: collapse;
+			width: 100%;   
+		}
+	th,td{
+		border: 2px solid green; 
+		padding: 15px;
+	}
+	</style>
+	</head>
+	
+	<body>
+	<div class="" style="float:right;">
+       <p>UserName : $User.getEmailId()</p>
+       <p>Phone Number :$User.getPhoneNumber()</p>
+    </div>
+	
+	<div style="float:left; width:100%">
+	<h2>Report Template</h2></div>
+      
+<table id="tableId" style="border-collapse: collapse;
+			width: 100%;">
+<thead>
+
+<tr>
+
+<th style="border: 2px solid green; 
+		padding: 15px;"id="issuetype">ReportId</th>
+<th style="border: 2px solid green; 
+		padding: 15px;" id="originalest">Reportname</th>
+<th style="border: 2px solid green; 
+		padding: 15px;" id="originalest">Created Date</th>
+<th style="border: 2px solid green; 
+		padding: 15px;" id="originalest">Report Type</th>
+
+</tr>
+</thead>
+<tbody>
+#foreach ($report in $!Report)
+
+<tr>
+<td style="border: 2px solid green; 
+		padding: 15px;" headers="issuetype">$report.getReportId()</td>
+<td style="border: 2px solid green; 
+		padding: 15px;" headers="originalest">$report.getReportName()</td>
+<td style="border: 2px solid green; 
+		padding: 15px;" headers="originalest">$report.getCreatedDat()</td>
+		
+		<td td style="border: 2px solid green; 
+		padding: 15px;" headers="originalest">
+                                            #if($report.getType() != '')
+                                             $report.getType()
+                                            #else 
+                                           <p> add report</p>
+                                            #end
+                                        </td>
+
+</tr>
+#end
+</tbody>
+
+</table>
+	</body>
+</html>
